@@ -60,10 +60,6 @@
     "webpack-dev-server": "^2.11.2"
   },
   "main": "index.js",
-  "files": [
-    "lib",
-    "dist"
-  ],
   "scripts": {
     "clean": "rimraf lib dist",
     "build": "cross-env BABEL_ENV=rollup rollup -c",
