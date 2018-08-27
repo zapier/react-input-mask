@@ -1,7 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import invariant from 'invariant';
-import warning from 'warning';
 
 import { setInputSelection, getInputSelection } from './utils/selection';
 import parseMask from './parseMask';
@@ -547,12 +546,12 @@ class InputElement extends React.Component {
     const { mask, alwaysShowMask, maskChar, formatChars, inputRef, beforeMaskedValueChange, children, ...restProps } = this.props;
     let inputElement;
 
-    warning(
-      // parse mask to test against actual mask prop as this.maskOptions
-      // will be updated later in componentDidUpdate
-      !restProps.maxLength || !parseMask(mask, maskChar, formatChars).mask,
-      'react-input-mask: maxLength property shouldn\'t be passed to the masked input. It breaks masking and unnecessary because length is limited by the mask length.'
-    );
+    // warning(
+    //   // parse mask to test against actual mask prop as this.maskOptions
+    //   // will be updated later in componentDidUpdate
+    //   !restProps.maxLength || !parseMask(mask, maskChar, formatChars).mask,
+    //   'react-input-mask: maxLength property shouldn\'t be passed to the masked input. It breaks masking and unnecessary because length is limited by the mask length.'
+    // );
 
     if (children) {
       invariant(
@@ -574,10 +573,10 @@ class InputElement extends React.Component {
         `react-input-mask: the following props should be passed to the react-input-mask's component and should not be altered in children's function: ${conflictProps.join(', ')}`
       );
 
-      warning(
-        !inputRef,
-        'react-input-mask: inputRef is ignored when children is passed, attach ref to the children instead'
-      );
+      // warning(
+      //   !inputRef,
+      //   'react-input-mask: inputRef is ignored when children is passed, attach ref to the children instead'
+      // );
     } else {
       inputElement = <input ref={this.handleRef} {...restProps} />;
     }
